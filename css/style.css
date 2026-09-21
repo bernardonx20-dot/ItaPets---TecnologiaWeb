@@ -341,7 +341,90 @@ main>a:hover{
   background:var(--azul-escuro);
   transform: translateY(-2px);
 }
+/*Página de Contatos*/
+form{
+  grid-column:1/-1;
+  max-width:600px;
+  width:100%;
+  margin: 0 auto var(--gap-xl);
+  background:var(--branco);
+  border-radius:var(--raio-large);
+  box-shadow:var(--sombra-card);
+  padding:var(--gap-large);
+}
+form p{
+  margin-bottom:var(--gap-medium);
+}
+form label{
+  display:inline-block;
+  font-weight:800;
+  margin-bottom:var(--gap-small);
+  color:var(--azul-escuro);
+  font-size: 1.1rem;
+}
 
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea{
+  width:100%;
+  padding:var(--gap-medium);
+  font-family:inherit;
+  font-size:1rem;
+  color:var(--preto);
+  background:#fdfdfd;
+  border: 1.5px solid #d6d6d6;
+  border-radius:var(--raio);
+  outline: none;
+  transition: var(--transicao), box-shadow var(--transicao);
+}
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus {
+  border-color: var(--laranja);
+  box-shadow: 0 0 0 3px rgba(249, 129, 0, 0.2);
+  background: var(--branco);
+}
+
+form textarea{
+  resize:vertical;
+  min-height: 120px;
+}
+form input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--laranja);
+  vertical-align: middle;
+}
+form label[for="termos"] {
+  display: inline;
+  margin-left: var(--gap-small);
+  margin-bottom: 0;
+  font-weight: 500;
+  color: var(--cinza-texto);
+  cursor: pointer;
+  vertical-align: middle;
+}
+form button[type="submit"] {
+  display: block;
+  width: 100%;
+  background: var(--laranja);
+  color: var(--branco);
+  border: none;
+  border-radius: var(--raio);
+  padding: var(--gap-medium);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background var(--transicao-suave), transform var(--transicao-suave);
+}
+
+form button[type="submit"]:hover {
+  background: var(--azul-escuro);
+  transform: translateY(-2px);
+}
 
 @keyframes fadeIn{
   from{
