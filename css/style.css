@@ -118,6 +118,80 @@ section:first-of-type{
   grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
   gap:var(--gap-large);
 }
+/*Ajuste do titulo h1*/
+section:first-of-type h1{
+  grid-column:1/-1;
+  display:block;
+}
+/*Cards dos produtos*/
+article {
+  background:var(--branco);
+  border-radius:var(--raio); 
+  box-shadow:var(--sombra-card);
+  overflow:hidden;
+  text-align:center;
+  padding-bottom:var(--gap-medium);
+
+  transition:transform var(--transicao-suave),box-shadow var(--transicao-suave);
+}
+article:hover{
+  transform:translateY(-10px);
+  box-shadow:var(--sombra-hover);
+}
+/*img do produto*/
+article img{
+  width:100%;
+  height:200px;
+  object-fit:contain;
+  padding:var(--gap-medium);
+  transition:transform 0.4 ease;
+}
+article:hover img{
+  transform:scale(1.10)
+}
+
+/*Titulo do card*/
+article h2{
+  font-size:0.85rem;
+  color:var(--cinza-texto);
+  padding:0 var(--gap-medium);
+  margin:var(--gap-small)0;
+  line-height:1.4;
+}
+article p{
+  font-size:1.1rem;
+  font-weight:700;
+  color:var(--azul-escuro);
+}
+article:first-of-type{
+  border:2px solid var(--laranja);
+}
+
+article:first-of-type p::after{
+  content:" 🏆";
+}
+
+/*Seção institucional*/
+
+section:nth-of-type(2){
+  background:var(--branco);
+  border-radius: var(--raio-large);
+  padding:var(--gap-xl);
+  margin-bottom:var(--gap-xl);
+  box-shadow:var(--sombra-card);
+  
+  display: flex;
+  gap: var(--gap-xl);
+  align-items:center;
+}
+section:nth-of-type(2) h1{
+  font-size:2rem;
+  color:var(--azul-escuro);
+  margin-bottom:var(--gap-medium);
+  border-bottom:2px solid var(--laranja);
+  display: inline-block;
+}
+
 
 
 
