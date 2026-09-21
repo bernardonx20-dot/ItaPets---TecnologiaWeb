@@ -1,17 +1,123 @@
-* {
+/*Variáveis*/
+:root{
+  --azul-escuro: #033261;
+  --azul-medio: #0a5ca8;
+  --azul-claro: #f4a020;
+  --laranja: #f98100;
+  --branco: #ffffffff;
+  --cinza-fundo: #7e7e7eff;
+  --cinza-texto: #555555;
+  --preto: #1a1a2e;
+
+  /* Espaçamentos */
+  --gap-small: 0.5rem; /*  8px */
+  --gap-medium: 1rem; /* 16px */
+  --gap-large: 2rem; /* 32px */
+  --gap-xl: 3rem; /* 48px */
+
+  --raio:12px;
+  --raio-large: 24px;
+
+  --sombra-card: 0 4px 20px rgba(3,50,97,0.10);
+  --sombra-hover: 0 12px 32px rgba(3,50,97,0.20);
+  --sombra-header: 0 2px 16px rgba(0,0,0,0.15);
+  
+  --transicao-suave: 0.3s ease;
+}
+
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f8f9fa;
-  color: #033261ff;
-  line-height: 1.6;
+  background: var(--cinza-fundo);
+  color: var(--preto);
+  line-height:1.6
 }
+
 a{
   text-decoration: none;
   color: inherit;
 }
+
+/* Barra do top*/
+
+header{
+  background:var(--azul-escuro);
+  color:var(--branco);
+  padding:var(--gap-medium) var(--gap-large);
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:var(--sombra-header);
+
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 var(--raio-large) var(--raio-large);
+}
+/* Nome da loja */
+header p{
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing:1px;
+  color: var(--branco);
+}
+/* Palavra ItaPet em Destaque */
+header p strong{
+  color: var(--laranja);
+}
+
+/* menu links de navegação */
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:var(--gap-large);
+}
+nav a{
+  color: var(--branco);
+  font-size:0.9rem;
+  font-weight:500;
+  letter-spacing:0.5px;
+  padding:var(--gap-small)0;
+  border-bottom:2px solid transparent;
+  transition:color var(--transicao-suave), border-color var(--transicao-suave);
+}
+nav a:hover{
+  color: var(--laranja);
+  border-bottom-color: var(--laranja);
+}
+
+/*main */
+
+main{
+  max-width:1200px;
+  margin:0 auto;
+  padding:var(--gap-large);
+}
+
+/*Seção produtos*/
+section:first-of-type{
+  margin-bottom:var(--gap-xl);
+}
+/*Titulo da seção*/
+section h1{
+  font-size: clamp(1.5rem, 3vw,2.2rem);
+  color: var(--azul-escuro);
+  margin-bottom:var(--gap-large);
+  padding-bottom:var(--gap-small);
+  border-bottom:3px solid var(--laranja);
+  display: inline-block;
+}
+/*Lista de produtos em Grid*/
+section:first-of-type{
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+  gap:var(--gap-large);
+}
+
+
 
