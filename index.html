@@ -6,12 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ItaPets - O Paraíso dos seus Pets</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 
 <body>
   <header>
     <p><strong>ITAPETS - O Paraíso dos seus Pets</strong></p>
-    <nav aria-label="Navegação Principal">
+
+    <button id="btn-menu" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="nav-menu" aria-label="Navegação Principal">
       <ul>
         <li><a href="contatos.html">CONTATOS</a></li>
         <li><a href="#produtos">PRODUTOS</a></li>
@@ -22,9 +30,61 @@
   </header>
 
   <main>
+
+    <!-- Busca e Filtros -->
+    <div id="busca-wrapper">
+      <input type="search" id="busca" placeholder="🔍 Buscar produto..." autocomplete="off">
+    </div>
+
+    <!-- Filtros por Categoria -->
+    <div id="filtros">
+      <button class="filtro ativo" data-filtro="todos">Todos</button>
+      <button class="filtro" data-filtro="antipulgas">🛡️ Antipulgas</button>
+      <button class="filtro" data-filtro="racao">🍖 Ração</button>
+      <button class="filtro" data-filtro="roupa">👕 Roupinha</button>
+      <button class="filtro" data-filtro="calcado">👟 Calçado</button>
+    </div>
+
+    <!-- Carrossel de Destaques -->
+    <section id="carrossel" aria-label="Destaques">
+      <h2>⭐ Destaques</h2>
+
+      <div id="carrossel-inner">
+        <div class="slide">
+          <img src="img/NexGard-Spectra-36kg-a-75kg-Antipulgas-Carrapatos-e-Vermifugo-embalagem_FRENTE-01.webp" alt="NexGard Spectra">
+          <div class="slide-info">
+            <h3>NexGard Spectra — Antipulgas, Carrapatos e Vermífugo</h3>
+            <p>R$ 250,00</p>
+            <a href="produtos/NexGard-Spectra-36kg-a-75kg-Antipulgas-Carrapatos-e-Vermifugo-embalagem_FRENTE-01.html" target="_blank">Ver Detalhes</a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="img/Racao-Formula-Natural-Fresh-Meat-Gatos-Castrados-Carne.webp" alt="Ração Formula Natural">
+          <div class="slide-info">
+            <h3>Ração Formula Natural Fresh Meat — Gatos Castrados</h3>
+            <p>R$ 140,00</p>
+            <a href="produtos/Racao-Formula-Natural-Fresh-Meat-Gatos-Castrados-Carne.html" target="_blank">Ver Detalhes</a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="img/Antipulgas-e-Carrapatos-Bravecto-45-a-10-kg-sem-sombra.webp" alt="Bravecto Antipulgas">
+          <div class="slide-info">
+            <h3>Antipulgas e Carrapatos Bravecto 4,5 a 10 kg</h3>
+            <p>R$ 180,00</p>
+            <a href="produtos/Antipulgas-e-Carrapatos-Bravecto-45-a-10-kg.html" target="_blank">Ver Detalhes</a>
+          </div>
+        </div>
+      </div>
+
+      <button id="btn-anterior">&#8592;</button>
+      <button id="btn-proximo">&#8594;</button>
+    </section>
+
     <section id="produtos">
       <h1>Nossos Produtos</h1>
-      <article>
+      <article data-categoria="antipulgas">
         <a href="produtos/Antipulgas-e-Carrapatos-Bravecto-45-a-10-kg.html" target="_blank">
           <img src="img/Antipulgas-e-Carrapatos-Bravecto-45-a-10-kg-sem-sombra.webp"
             alt="Antipulgas e Carrapatos Bravecto 45 a 10 kg sem sombra" width="200" height="200">
@@ -34,7 +94,7 @@
         <a href="produtos/Antipulgas-e-Carrapatos-Bravecto-45-a-10-kg.html" target="_blank">Ver
           Detalhes</a>
       </article>
-      <article>
+      <article data-categoria="antipulgas">
         <a href="produtos/antipulgas-e-carrapatos-frontline-topspot-para-gatos.html" target="_blank">
           <img src="img/antipulgas-e-carrapatos-frontline-topspot-para-gatos.webp"
             alt="Antipulgas e Carrapatos Frontline TopSpot para Gatos" width="200" height="200">
@@ -44,7 +104,7 @@
         <a href="produtos/antipulgas-e-carrapatos-frontline-topspot-para-gatos.html" target="_blank">Ver Detalhes</a>
       </article>
 
-      <article>
+      <article data-categoria="antipulgas">
         <a href="produtos/Antipulgas-Simparic-20mg-para-Caes-5-a-10kg.html" target="_blank">
           <img src="img/Antipulgas-Simparic-20mg-para-Caes-5-a-10kg-01.webp"
             alt="Antipulgas Simparic 20mg para Caes 5 a 10kg" width="200" height="200">
@@ -54,7 +114,7 @@
         <a href="produtos/Antipulgas-Simparic-20mg-para-Caes-5-a-10kg.html" target="_blank">Ver
           Detalhes</a>
       </article>
-      <article>
+      <article data-categoria="roupa">
         <a href="produtos/Blusao-Feminino-Moletom-Canguru-Diagonal-Bicolor.html" target="_blank">
           <img src="img/Blusa-Sherpa-Capuz-Bege-Diagonal.webp" alt="Blusao Feminino Moletom Canguru Diagonal Bicolor"
             width="200" height="200">
@@ -63,7 +123,7 @@
         <p>R$ 150,00</p>
         <a href="produtos/Blusao-Feminino-Moletom-Canguru-Diagonal-Bicolor.html" target="_blank">Ver Detalhes</a>
       </article>
-      <article>
+      <article data-categoria="roupa">
         <a href="produtos/Blusao-Originals-para-Caes-e-Gatos-Emporium-Distripet-Azul.html" target="_blank">
           <img src="img/Blusao-Originals-para-Caes-e-Gatos-Emporium-Distripet-Azul.webp"
             alt="Blusao Originals para Caes e Gatos Emporium Distripet Azul" width="200" height="200">
@@ -73,7 +133,7 @@
         <a href="produtos/Blusao-Originals-para-Caes-e-Gatos-Emporium-Distripet-Azul.html" target="_blank">
           Ver Detalhes</a>
       </article>
-      <article>
+      <article data-categoria="racao">
         <a href="produtos/GP-Menu-Gato-Adulto-Castrado-Sabor-Frango-e-Arroz-FRONTAL.html" target="_blank">
           <img src="img/GP-Menu-Gato-Adulto-Castrado-Sabor-Frango-e-Arroz-FRONTAL.webp"
             alt="GP Menu Gato Adulto Castrado Sabor Frango e Arroz FRONTAL" width="200" height="200">
@@ -83,7 +143,7 @@
         <a href="produtos/GP-Menu-Gato-Adulto-Castrado-Sabor-Frango-e-Arroz-FRONTAL.html" target="_blank">Ver
           Detalhes</a>
       </article>
-      <article>
+      <article data-categoria="calcado">
         <a href="produtos/Meia-Sapato-para-Cães-Azul-HomePet.html" target="_blank">
           <img src="img/Meia-Sapato-para-Cães-Azul-HomePet.webp" alt="Meia Sapato para Cães Azul HomePet" width="200"
             height="200">
@@ -92,7 +152,7 @@
         <p>R$ 25,00</p>
         <a href="produtos/Meia-Sapato-para-Cães-Azul-HomePet.html" target="_blank">Ver Detalhes</a>
       </article>
-      <article>
+      <article data-categoria="antipulgas">
         <a href="produtos/NexGard-Spectra-36kg-a-75kg-Antipulgas-Carrapatos-e-Vermifugo-embalagem_FRENTE-01.html"
           target="_blank">
           <img src="img/NexGard-Spectra-36kg-a-75kg-Antipulgas-Carrapatos-e-Vermifugo-embalagem_FRENTE-01.webp"
@@ -108,7 +168,7 @@
         <a href="produtos/NexGard-Spectra-36kg-a-75kg-Antipulgas-Carrapatos-e-Vermifugo-embalagem_FRENTE-01.html"
           target="_blank">Ver Detalhes</a>
       </article>
-      <article>
+      <article data-categoria="racao">
         <a href="produtos/Racao-Formula-Natural-Fresh-Meat-Gatos-Castrados-Carne.html" target="_blank">
           <img src="img/Racao-Formula-Natural-Fresh-Meat-Gatos-Castrados-Carne.webp"
             alt="Racao Formula Natural Fresh Meat Gatos Castrados Carne" width="200" height="200">
@@ -117,7 +177,7 @@
         <p>R$ 140,00</p>
         <a href="produtos/Racao-Formula-Natural-Fresh-Meat-Gatos-Castrados-Carne.html" target="_blank">Ver Detalhes</a>
       </article>
-      <article>
+      <article data-categoria="racao">
         <a href="produtos/racao-golden-gatos-castrados-frango-1-1.html" target="_blank">
           <img src="img/racao-golden-gatos-castrados-frango-1-1.webp" alt="Racao Golden Gatos Castrados Frango 1-1"
             width="200" height="200">
@@ -126,7 +186,7 @@
         <p>R$ 55,00</p>
         <a href="produtos/racao-golden-gatos-castrados-frango-1-1.html" target="_blank">Ver Detalhes</a>
       </article>
-      <article>
+      <article data-categoria="racao">
         <a href="produtos/racao-golden-selecao-natural-gatos-castrados-frango-com-batata-doce-1-1.html" target="_blank">
           <img src="img/racao-golden-selecao-natural-gatos-castrados-frango-com-batata-doce-1-1.webp"
             alt="Racao Golden Selecao Natural Gatos Castrados Frango Com Batata Doce 1-1" width="200" height="200">
@@ -141,14 +201,14 @@
         <a href="produtos/racao-golden-selecao-natural-gatos-castrados-frango-com-batata-doce-1-1.html"
           target="_blank">Ver Detalhes</a>
       </article>
-      <article>
+      <article data-categoria="roupa">
         <a href="produtos/Vestido-Live-Love-Vermelho-Bichinho-Chic.html" target="_blank">
           <img src="img/Vestido-Live-Love-Vermelho-Bichinho-Chic.webp" alt="Vestido Live Love Vermelho Bichinho Chic"
             width="200" height="200">
           <h2>Vestido Live Love Vermelho Bichinho Chic</h2>
         </a>
         <p>R$ 40,00</p>
-        <a href="produtos/Vestido-Live-Love-Vermelho-Bichinho-Chic.html" target="_blank"">Ver Detalhes</a>
+        <a href="produtos/Vestido-Live-Love-Vermelho-Bichinho-Chic.html" target="_blank">Ver Detalhes</a>
       </article>
     </section>
     <section id="quem-somos">

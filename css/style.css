@@ -581,3 +581,221 @@ article:nth-child(6) {
     gap: var(--gap-small);
   }
 }
+
+/* ========================
+   BOTÃO SANDUÍCHE
+   ======================== */
+#btn-menu {
+  display: none; /* Oculto no desktop */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+#btn-menu span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--branco);
+  border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Vira um X quando aberto */
+#btn-menu.aberto span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+#btn-menu.aberto span:nth-child(2) { opacity: 0; }
+#btn-menu.aberto span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+@media (max-width: 768px) {
+  #btn-menu {
+    display: flex;
+  }
+
+  /* Nav escondido por padrão no mobile */
+  #nav-menu {
+    display: none;
+    width: 100%;
+    order: 3;
+  }
+
+  /* Nav visível quando JS adiciona .aberto */
+  #nav-menu.aberto {
+    display: block;
+  }
+
+  header {
+    flex-wrap: wrap;
+  }
+}
+
+/* ========================
+   BUSCA
+   ======================== */
+#busca-wrapper {
+  max-width: 500px;
+  margin: var(--gap-large) auto var(--gap-medium);
+}
+
+#busca {
+  width: 100%;
+  padding: 0.75rem var(--gap-medium);
+  font-size: 1rem;
+  font-family: inherit;
+  border: 2px solid #d6d6d6;
+  border-radius: var(--raio);
+  outline: none;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+#busca:focus {
+  border-color: var(--laranja);
+  box-shadow: 0 0 0 3px rgba(249, 129, 0, 0.2);
+}
+
+/* ========================
+   FILTROS DE CATEGORIA
+   ======================== */
+#filtros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap-small);
+  margin: 0 auto var(--gap-large);
+  max-width: 700px;
+}
+
+.filtro {
+  padding: 0.5rem 1.2rem;
+  border: 2px solid var(--azul-escuro);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--azul-escuro);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background var(--transicao),
+    color var(--transicao),
+    border-color var(--transicao),
+    transform var(--transicao);
+}
+
+.filtro:hover {
+  background: var(--azul-escuro);
+  color: var(--branco);
+  transform: translateY(-2px);
+}
+
+.filtro.ativo {
+  background: var(--laranja);
+  border-color: var(--laranja);
+  color: var(--branco);
+}
+
+/* ========================
+   CARROSSEL
+   ======================== */
+#carrossel {
+  position: relative;
+  background: var(--branco);
+  border-radius: var(--raio-large);
+  box-shadow: var(--sombra-card);
+  margin-bottom: var(--gap-xl);
+  padding: var(--gap-large);
+  overflow: hidden;
+}
+
+#carrossel h2 {
+  font-size: 1.4rem;
+  color: var(--azul-escuro);
+  margin-bottom: var(--gap-large);
+  border-bottom: 3px solid var(--laranja);
+  display: inline-block;
+  padding-bottom: var(--gap-small);
+}
+
+/* Cada slide oculto por padrão */
+.slide {
+  display: none;
+  gap: var(--gap-xl);
+  align-items: center;
+}
+
+/* JS adiciona .ativo no slide atual */
+.slide.ativo {
+  display: flex;
+}
+
+.slide img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border-radius: var(--raio);
+  flex-shrink: 0;
+}
+
+.slide-info h3 {
+  font-size: 1.2rem;
+  color: var(--azul-escuro);
+  margin-bottom: var(--gap-small);
+}
+
+.slide-info p {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--laranja);
+  margin-bottom: var(--gap-medium);
+}
+
+.slide-info a {
+  display: inline-block;
+  padding: var(--gap-small) var(--gap-large);
+  background: var(--laranja);
+  color: var(--branco);
+  border-radius: var(--raio);
+  font-weight: 700;
+  transition: background var(--transicao-suave);
+}
+
+.slide-info a:hover {
+  background: var(--azul-escuro);
+}
+
+/* Botões prev / next */
+#btn-anterior,
+#btn-proximo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--azul-escuro);
+  color: var(--branco);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background var(--transicao-suave);
+}
+
+#btn-anterior { left: var(--gap-small); }
+#btn-proximo  { right: var(--gap-small); }
+
+#btn-anterior:hover,
+#btn-proximo:hover {
+  background: var(--laranja);
+}
+
+@media (max-width: 600px) {
+  .slide {
+    flex-direction: column;
+    text-align: center;
+  }
+  .slide img {
+    width: 160px;
+    height: 160px;
+  }
+}
